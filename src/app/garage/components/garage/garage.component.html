@@ -1,0 +1,10 @@
+
+  <app-cars></app-cars>
+  <ul>
+    <li *ngFor="let item of allCars">
+        {{item.Name}} {{item.LicenseNo}} 
+        <button (click)="deleteCar(allCars , item.ItemId)"><i class="material-icons">delete</i></button>
+    </li>
+  </ul>
+    
+

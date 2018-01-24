@@ -8,8 +8,14 @@ import { MaterialModule } from './../material.module';
 
 
 import { RootComponent } from './components/root.component';
-import { GarageComponent } from './../garage/components/garage.component';
-import { CarsComponent } from './../cars/components/cars.component';
+import { GarageComponent } from './../garage/components/garage/garage.component';
+
+import { CarsComponent } from './../cars/components/cars/cars.component';
+
+import { DialogComponent } from './../cars/components/dialog/dialog.component';
+
+import { RootService } from './services/root.service';
+
 
 
 @NgModule({
@@ -21,11 +27,15 @@ import { CarsComponent } from './../cars/components/cars.component';
   imports: [
     BrowserModule,
     FormsModule,
+    BrowserAnimationsModule,
     MaterialModule,    
     GarageModule,
     CarsModule
   ],
-  providers: [],
+  entryComponents:[
+    DialogComponent
+  ],
+  providers: [RootService],
   bootstrap: [RootComponent]
 })
 export class RootModule { }
