@@ -1,10 +1,28 @@
+<div>
+	<app-cars></app-cars>
+	<mat-list>
+		<mat-list-item> 
+			<span class="padding-h-46">
+				CAR
+			</span> 
+			<span class="padding-h-46">
+				LICENSE
+			</span>
+			<span class="padding-h-46">
+				ACTION
+			</span> 
+		</mat-list-item>
+		<mat-list-item (click)="details(item)" *ngFor="let item of allCars">
+			<span class="padding-h-46">{{item.Name}}</span> 
+			<span class="padding-h-46">{{item.LicenseNo}}</span>
+			<i (click)="deleteCar(allCars , item.ItemId)" class="padding-46 material-icons">delete</i>
+		</mat-list-item>
+	</mat-list>
 
-  <app-cars></app-cars>
-  <ul>
-    <li *ngFor="let item of allCars">
-        {{item.Name}} {{item.LicenseNo}} 
-        <button (click)="deleteCar(allCars , item.ItemId)"><i class="material-icons">delete</i></button>
-    </li>
-  </ul>
-    
-
+	<div class="margin-46">
+		<h3>Details</h3>
+		<mat-list>
+			<mat-list-item> {{name}} {{licenseNo}} </mat-list-item>
+		</mat-list>
+	</div>
+</div>

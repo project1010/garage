@@ -19,27 +19,36 @@ export class CarsComponent implements OnInit {
 	carData: CarModel[] = [];
 	message:string;
 
-	constructor(public dialog: MatDialog, private data: RootService) { }
+
+	constructor(public dialog: MatDialog, private data: RootService) {
+		this.data.currentData.subscribe((response: CarModel[]) => {
+			this.carData = response;
+		})
+	}
 	  
   	ngOnInit() {
 		
-  	}
+	}
+  
+	
 
 	openDialog() {
 		let ItemId:string = this.guid();
 		let Name:string;
 		let LicenseNo:string;
+		let allCars: CarModel[];
 
 		let dialogRef = this.dialog.open(DialogComponent, {
 			width: '600px',
 			data: new CarModel(ItemId,Name,LicenseNo)
 		});
-
+		//this.carData.push(this.data.currentData)
 		dialogRef.afterClosed().subscribe(result => {
 			this.dialogResult = result;
-			this.carData.push(this.dialogResult);
-			this.data.updateGarage(this.carData);
-			console.log(this.carData);
+			if(this.dialogResult){
+				this.carData.push(this.dialogResult);
+				this.data.updateGarage(this.carData);
+			}
 		})
 	}
 

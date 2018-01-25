@@ -3,20 +3,31 @@ import { CarModel } from './../../../cars/model/cars.model';
 import { Component, OnInit } from '@angular/core';
 
 
-
 @Component({
-  selector: 'app-garage',
-  templateUrl: './garage.component.html',
-  styleUrls: ['./garage.component.css']
+	selector: 'app-garage',
+	templateUrl: './garage.component.html',
+	styleUrls: ['./garage.component.css']
 })
 export class GarageComponent implements OnInit {
-  allCars:CarModel[];
-  constructor(private data: RootService) { }
+	cars: CarModel;
+	allCars: CarModel[];
+	name: string;
+	licenseNo: string;
 
-  deleteCar(allCars:CarModel[] , itemId:string){
-    this.data.deleteCar(allCars, itemId);
-  }
-  ngOnInit() {
-    this.data.currentData.subscribe(response => this.allCars = response);
-  }
+	constructor(private data: RootService) { }
+
+	deleteCar(allCars: CarModel[], itemId: string) {
+		this.name = null;
+		this.licenseNo = null;
+		this.data.deleteCar(allCars, itemId);
+	}
+
+	details(detailsData: CarModel) {
+		this.name = detailsData.Name;
+		this.licenseNo = detailsData.LicenseNo;
+	}
+
+	ngOnInit() {
+		this.data.currentData.subscribe(response => this.allCars = response);
+	}
 }
