@@ -1,6 +1,8 @@
+import { GarageComponent } from './components/garage/garage.component';
+import { CarsModule } from './../cars/cars.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DataTableComponent } from './components/data-table/data-table.component';
+import { MaterialModule } from '../material.module';
 
 
 
@@ -8,7 +10,14 @@ import { DataTableComponent } from './components/data-table/data-table.component
 @NgModule({
   imports: [
     CommonModule,
+    CarsModule,
+    MaterialModule
   ],
-  declarations: [DataTableComponent]
+  declarations: [
+    GarageComponent
+  ],
+  exports:[
+    GarageComponent
+  ]
 })
 export class GarageModule { }

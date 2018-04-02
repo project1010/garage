@@ -1,11 +1,8 @@
 import { CarsModule } from './../../cars.module';
 import { Component,Inject, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-
 import { RootService } from './../../../root/services/root.service';
-
 import { DialogComponent } from '../dialog/dialog.component';
-
 import { CarModel } from '../../model/cars.model';
 
 @Component({

@@ -22,6 +22,6 @@ import {
     MatFormFieldModule,
     MatInputModule,
     MatListModule
-  ],
+  ]
 })
 export class MaterialModule { }
